@@ -1,0 +1,13 @@
+{
+  "name": "jean-design-patterns-kit",
+  "owner": {
+    "name": "Jean Bianchi"
+  },
+  "plugins": [
+    {
+      "name": "design-patterns-apex-kit",
+      "source": "./",
+      "description": "22 padrões GoF + SOLID + refatoração aplicados a Apex, com skills, agentes, comandos e hook de design smells."
+    }
+  ]
+}
