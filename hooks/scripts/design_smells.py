@@ -20,6 +20,12 @@ from collections import Counter
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
+# Windows: garante UTF-8 na saída (acentos nas mensagens dos hooks)
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8")
+
+
 LIMITS = {"method_lines": 40, "class_lines": 500, "methods_per_class": 25, "params": 4,
           "branches": 4, "switch_whens": 6, "instanceof": 3, "static_util_methods": 12, "repeated_literal": 3}
 

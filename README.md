@@ -63,6 +63,12 @@ python3 hooks/scripts/design_smells.py force-app --format github # anotações n
 
 Supressão justificada: `// design-kit:ignore DSN004`.
 
+## Windows
+- **Node 22+** é obrigatório para o Salesforce CLI (ou use o instalador `.exe` do CLI, que já traz o próprio Node).
+- O Claude Code no Windows usa o **Git for Windows** (Git Bash) para rodar os hooks — instale-o.
+- Os hooks usam `python3` e, se ele não existir, `python`. Instale o Python 3 em python.org marcando **"Add python.exe to PATH"** e confira com `python --version` no Git Bash.
+- No PowerShell, rode os scripts com `python` no lugar de `python3` e use caminhos como `$HOME\kits\...`.
+
 ## Observações
 - Exemplos Apex escritos para API 62.0+ (usam `Assert`, `Comparator`, `Type.isAssignableFrom`). As classes de `templates/classes/` têm testes; valide numa scratch org antes do primeiro uso.
 - Os PDFs e trechos do livro **não** fazem parte deste repositório (licença de uso pessoal do autor). Compre o livro em refactoring.guru para a leitura completa.

@@ -7,6 +7,12 @@ import os
 import sys
 from pathlib import Path
 
+# Windows: garante UTF-8 na saída (acentos nas mensagens dos hooks)
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8")
+
+
 CONTEXT = """\
 [design-patterns-apex-kit ativo] Ao desenhar ou alterar Apex, aplique SOLID e padrões GoF COM CRITÉRIO:
 - Diagnostique pelo sintoma: if/switch escolhendo classe → Factory Method; algoritmo variável → Strategy;

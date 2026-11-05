@@ -107,8 +107,8 @@ def register_claude_hooks(project: Path) -> None:
     settings_path = project / ".claude" / "settings.json"
     settings = json.loads(settings_path.read_text(encoding="utf-8")) if settings_path.exists() else {}
     hooks = settings.setdefault("hooks", {})
-    smells = f'python3 "$CLAUDE_PROJECT_DIR/{VENDOR_DIR}/hooks/scripts/design_smells.py" --hook'
-    context = f'python3 "$CLAUDE_PROJECT_DIR/{VENDOR_DIR}/hooks/scripts/session_context.py"'
+    smells = f'"$(command -v python3 || command -v python)" "$CLAUDE_PROJECT_DIR/{VENDOR_DIR}/hooks/scripts/design_smells.py" --hook'
+    context = f'"$(command -v python3 || command -v python)" "$CLAUDE_PROJECT_DIR/{VENDOR_DIR}/hooks/scripts/session_context.py"'
     wanted = {
         "PostToolUse": {"matcher": "Write|Edit|MultiEdit", "hooks": [{"type": "command", "command": smells}]},
         "SessionStart": {"hooks": [{"type": "command", "command": context}]},

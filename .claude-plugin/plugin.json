@@ -1,6 +1,6 @@
 {
   "name": "design-patterns-apex-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Os 22 padrões GoF, SOLID e refatoração aplicados a Apex/Salesforce: base de conhecimento, skills, agentes, comandos, hook detector de design smells e classes reutilizáveis (TypeResolver, CommandQueue, ChainHandler, DomainEventPublisher).",
   "author": {
     "name": "Jean Bianchi"
