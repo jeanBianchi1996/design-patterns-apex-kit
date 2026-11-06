@@ -61,7 +61,7 @@ python3 hooks/scripts/design_smells.py force-app --format github # anotações n
 | DSN009 | Literal repetido 3+ vezes | Constantes / enum / State |
 | DSN010 | Parâmetro booleano de controle | Dois métodos ou Strategy |
 
-Supressão justificada: `// design-kit:ignore DSN004`.
+Supressão justificada: `// design-kit:ignore DSN004`. Por repositório: variável `DESIGN_KIT_IGNORE=DSN009,DSN010`.
 
 ## Windows
 - **Node 22+** é obrigatório para o Salesforce CLI (ou use o instalador `.exe` do CLI, que já traz o próprio Node).

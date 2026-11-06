@@ -8,6 +8,7 @@ Modos:
 
 No modo hook os achados NÃO bloqueiam: voltam como additionalContext para a IA avaliar.
 Com DESIGN_KIT_STRICT=1 viram bloqueantes (exit 2). DESIGN_KIT_DISABLE=1 desliga.
+DESIGN_KIT_IGNORE=DSN009,DSN010 desliga regras específicas (ex.: convenções do projeto).
 Supressão: // design-kit:ignore DSN004  (linha ou linha anterior)  |  // design-kit:ignore-file DSN001
 """
 from __future__ import annotations
@@ -99,6 +100,7 @@ class SmellDetector:
         self.class_name = match.group(1) if match else path.stem
         self.findings: list[Finding] = []
         self.file_ignores = {r.strip() for found in IGNORE_FILE.findall(source) for r in found.split(",")}
+        self.file_ignores |= {r.strip() for r in os.environ.get("DESIGN_KIT_IGNORE", "").split(",") if r.strip()}
 
     def add(self, index: int, rule: str, detail: str = "") -> None:
         if rule in self.file_ignores:
